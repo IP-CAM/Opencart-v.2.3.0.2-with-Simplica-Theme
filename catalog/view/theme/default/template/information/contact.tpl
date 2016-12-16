@@ -26,9 +26,13 @@
               <address>
               <?php echo $address; ?>
               </address>
+
+
               <?php if ($geocode) { ?>
-              <a href="https://maps.google.com/maps?q=<?php echo urlencode($geocode); ?>&hl=<?php echo $geocode_hl; ?>&t=m&z=15" target="_blank" class="btn btn-info"><i class="fa fa-map-marker"></i> <?php echo $button_map; ?></a>
+                  <iframe width="600" height="450" frameborder="0" style="border:0"
+                    src="https://www.google.com/maps/embed/v1/place?q=<?php echo urlencode($geocode); ?>&key=AIzaSyA52WHlNMBKLq1xS5CUmGojDnuynjrByf0" allowfullscreen></iframe>
               <?php } ?>
+                
             </div>
             <div class="col-sm-3"><strong><?php echo $text_telephone; ?></strong><br>
               <?php echo $telephone; ?><br />

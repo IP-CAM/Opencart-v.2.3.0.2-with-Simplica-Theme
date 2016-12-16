@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<modification>
+	<id>Open Web Creations - Store Company ID/VAT/IBAN/BIC on invoice and contact page</id>
+	<version>1.1</version>
+	<vqmver>2.5.0</vqmver>
+	<author>http://www.openwebcreations.nl/</author>	
+	
+	<file path="admin/language/*/" name="setting/setting.php,setting/store.php,sale/order.php,information/contact.php" error="skip">
+	<operation>
+		<search position="replace"><![CDATA[
+			$_['heading_title']
+		]]></search>
+		<add ><![CDATA[			  
+	  /* OWC start owc_store_company_settings.xml */		
+	  $_['text_company_info']     = 'Extra Company information';	  
+	  $_['text_company_position'] = 'Position';
+		$_['help_company_position'] = 'The position where the extra company information is placed on the contact page';
+		$_['text_company_pos0']     = 'Left below store address';
+		$_['text_company_pos1']     = 'Right top above Opening Times';
+		$_['text_company_pos2']     = 'Right bottom beneath Comments';
+		$_['text_company_id']       = 'Comp. ID';
+		$_['help_company_id']       = 'Company ID, displayed on contact page and orders';
+		$_['text_company_tax_id']   = 'VAT no.';
+		$_['help_company_tax_id']   = 'Company VAT number, displayed on contact page and orders';
+		$_['text_company_iban']     = 'IBAN';
+		$_['help_company_iban']     = 'Company IBAN number, displayed on contact page and orders';
+		$_['text_company_bic']      = 'BIC';
+		$_['help_company_bic']      = 'Company BIC, displayed on contact page and orders';				
+		/* OWC end owc_store_company_settings.xml */		
+		$_['heading_title']	
+		]]></add>
+	</operation>
+	</file>
+	
+	<file path="catalog/language/*/" name="information/contact.php,account/pdf_invoice.php" error="skip">
+	<operation>
+		<search position="bottom"><![CDATA[
+			Text
+		]]></search>
+		<add ><![CDATA[			  
+	  /* OWC start owc_store_company_settings.xml */		
+	  $_['text_company_info']     = 'Company information';
+		$_['text_company_id']       = 'Comp. ID:';	
+		$_['text_company_tax_id']   = 'VAT number:';	
+		$_['text_company_iban']     = 'IBAN:';
+		$_['text_company_bic']      = 'BIC:';				
+		/* OWC end owc_store_company_settings.xml */				
+		]]></add>
+	</operation>
+	</file>
+		
+	<file path="admin/controller/setting/" name="setting.php" error="skip">	
+	<operation>
+		<search position="replace"><![CDATA[
+			$data['tab_server'] = $this->language->get('tab_server');
+		]]></search>
+		<add ><![CDATA[		  
+	  $data['tab_server'] = $this->language->get('tab_server');
+	  
+		/* OWC start owc_store_company_settings.xml */  			
+		$data['text_company_info']    = $this->language->get('text_company_info');
+		$data['text_company_position']= $this->language->get('text_company_position');
+		$data['help_company_position']= $this->language->get('help_company_position');
+		$data['text_company_pos0']    = $this->language->get('text_company_pos0');
+		$data['text_company_pos1']    = $this->language->get('text_company_pos1');
+		$data['text_company_pos2']    = $this->language->get('text_company_pos2');
+		$data['text_company_id']      = $this->language->get('text_company_id');
+		$data['help_company_id']      = $this->language->get('help_company_id');
+		$data['text_company_tax_id']  = $this->language->get('text_company_tax_id');
+		$data['help_company_tax_id']  = $this->language->get('help_company_tax_id');
+		$data['text_company_iban']    = $this->language->get('text_company_iban');
+		$data['help_company_iban']    = $this->language->get('help_company_iban');
+		$data['text_company_bic']     = $this->language->get('text_company_bic');
+		$data['help_company_bic']     = $this->language->get('help_company_bic');							
+		/* OWC end owc_store_company_settings.xml */  	
+		]]></add>
+	</operation>
+	<operation>
+	<search position="before"><![CDATA[
+			$data['header'] = $this->load->controller('common/header');
+		]]></search>
+		<add ><![CDATA[
+	  /* OWC start owc_store_company_settings.xml */  
+	  if (isset($this->request->post['config_company_position'])) {
+			$data['config_company_position'] = $this->request->post['config_company_position']; 
+		} else {
+			$data['config_company_position'] = $this->config->get('config_company_position');
+		}						
+		if (isset($this->request->post['config_company_id'])) {
+			$data['config_company_id'] = $this->request->post['config_company_id']; 
+		} else {
+			$data['config_company_id'] = $this->config->get('config_company_id');
+		}							
+		if (isset($this->request->post['config_company_tax_id'])) {
+			$data['config_company_tax_id'] = $this->request->post['config_company_tax_id']; 
+		} else {
+			$data['config_company_tax_id'] = $this->config->get('config_company_tax_id');
+		}			
+		if (isset($this->request->post['config_company_iban'])) {
+			$data['config_company_iban'] = $this->request->post['config_company_iban']; 
+		} else {
+			$data['config_company_iban'] = $this->config->get('config_company_iban');
+		}								
+		if (isset($this->request->post['config_company_bic'])) {
+			$data['config_company_bic'] = $this->request->post['config_company_bic']; 
+		} else {
+			$data['config_company_bic'] = $this->config->get('config_company_bic');
+		}			
+		/* OWC end owc_store_company_settings.xml */ 					
+		]]></add>
+	</operation>
+	</file>
+	
+	<file path="admin/controller/setting/" name="store.php" error="skip">	
+	<operation>
+		<search position="replace"><![CDATA[
+			$data['tab_server'] = $this->language->get('tab_server');
+		]]></search>
+		<add ><![CDATA[		  
+	  $data['tab_server'] = $this->language->get('tab_server');
+	  
+		/* OWC start owc_store_company_settings.xml */  
+		$data['text_company_info']    = $this->language->get('text_company_info');			
+		$data['text_company_position']= $this->language->get('text_company_position');
+		$data['help_company_position']= $this->language->get('help_company_position');
+		$data['text_company_pos0']    = $this->language->get('text_company_pos0');
+		$data['text_company_pos1']    = $this->language->get('text_company_pos1');
+		$data['text_company_pos2']    = $this->language->get('text_company_pos2');
+		$data['text_company_id']      = $this->language->get('text_company_id');
+		$data['help_company_id']      = $this->language->get('help_company_id');
+		$data['text_company_tax_id']  = $this->language->get('text_company_tax_id');
+		$data['help_company_tax_id']  = $this->language->get('help_company_tax_id');
+		$data['text_company_iban']    = $this->language->get('text_company_iban');
+		$data['help_company_iban']    = $this->language->get('help_company_iban');
+		$data['text_company_bic']     = $this->language->get('text_company_bic');
+		$data['help_company_bic']     = $this->language->get('help_company_bic');							
+		/* OWC end owc_store_company_settings.xml */  	
+		]]></add>
+	</operation>
+	<operation>
+	<search position="before" index="2"><![CDATA[
+			$data['header'] = $this->load->controller('common/header');
+		]]></search>
+		<add ><![CDATA[
+	  /* OWC start owc_store_company_settings.xml */  
+	  if (isset($this->request->post['config_company_position'])) {
+			$data['config_company_position'] = $this->request->post['config_company_position'];
+		} elseif (isset($store_info['config_company_position'])) {
+			$data['config_company_position'] = $store_info['config_company_position'];
+		} else {
+			$data['config_company_position'] = $this->config->get('config_company_position');
+		}
+	  if (isset($this->request->post['config_company_id'])) {
+			$data['config_company_id'] = $this->request->post['config_company_id'];
+		} elseif (isset($store_info['config_company_id'])) {
+			$data['config_company_id'] = $store_info['config_company_id'];
+		} else {
+			$data['config_company_id'] = $this->config->get('config_company_id');
+		}
+		if (isset($this->request->post['config_company_tax_id'])) {
+			$data['config_company_tax_id'] = $this->request->post['config_company_tax_id'];
+		} elseif (isset($store_info['config_company_tax_id'])) {
+			$data['config_company_tax_id'] = $store_info['config_company_tax_id'];
+		} else {
+			$data['config_company_tax_id'] = $this->config->get('config_company_tax_id');
+		}
+		if (isset($this->request->post['config_company_iban'])) {
+			$data['config_company_iban'] = $this->request->post['config_company_iban'];
+		} elseif (isset($store_info['config_company_iban'])) {
+			$data['config_company_iban'] = $store_info['config_company_iban'];
+		} else {
+			$data['config_company_iban'] = $this->config->get('config_company_iban');
+		}
+		if (isset($this->request->post['config_company_bic'])) {
+			$data['config_company_bic'] = $this->request->post['config_company_bic'];
+		} elseif (isset($store_info['config_company_bic'])) {
+			$data['config_company_bic'] = $store_info['config_company_bic'];
+		} else {
+			$data['config_company_bic'] = $this->config->get('config_company_bic');
+		}		
+		/* OWC end owc_store_company_settings.xml */ 					
+		]]></add>
+	</operation>
+	</file>
+	
+	<file path="admin/view/template/setting/" name="setting.tpl,store_form.tpl" error="skip">	
+	<operation>
+		<search  position="after" offset="3"><![CDATA[
+			<div class="text-danger"><?php echo $error_address; ?></div>
+		]]></search>
+		<add><![CDATA[
+		<?php /* OWC start owc_store_company_settings.xml */ ?> 			
+		<fieldset>
+		<legend><?php echo $text_company_info; ?></legend>
+		<div class="form-group">
+		  <label class="col-sm-2 control-label" for="company-id-input"><span data-toggle="tooltip" title="<?php echo $help_company_id; ?>"><?php echo $text_company_id; ?></span></label>
+			<div class="col-sm-10"><input type="text" class="form-control" name="config_company_id" value="<?php echo $config_company_id; ?>" /> </div>
+		</div>	
+			
+		<div class="form-group">
+		  <label class="col-sm-2 control-label" for="company-vat-id-input"><span data-toggle="tooltip" title="<?php echo $help_company_tax_id; ?>"><?php echo $text_company_tax_id; ?></span></label>
+			<div class="col-sm-10"><input type="text" class="form-control" name="config_company_tax_id" value="<?php echo $config_company_tax_id; ?>" /> </div>
+		</div>
+			
+		<div class="form-group">
+		  <label class="col-sm-2 control-label" for="company-iban-input"><span data-toggle="tooltip" title="<?php echo $help_company_iban; ?>"><?php echo $text_company_iban; ?></span></label>
+			<div class="col-sm-10"><input type="text" class="form-control" name="config_company_iban" value="<?php echo $config_company_iban; ?>" /> </div>
+		</div>						
+	 						
+		<div class="form-group">
+		  <label class="col-sm-2 control-label" for="company-bic-input"><span data-toggle="tooltip" title="<?php echo $help_company_bic; ?>"><?php echo $text_company_bic; ?></span></label>
+			<div class="col-sm-10"><input type="text" class="form-control" name="config_company_bic" value="<?php echo $config_company_bic; ?>" /> </div>
+		</div>		
+					
+		<div class="form-group">
+		  <label class="col-sm-2 control-label" for="company-pos-input"><span data-toggle="tooltip" title="<?php echo $help_company_position; ?>"><?php echo $text_company_position; ?></span></label>
+			<div class="col-sm-10">
+			  <select name="config_company_position" id="company-pos-input" class="form-control">
+          <option value="0" <?php echo ($config_company_position == 0) ? 'selected="selected"': '';?>><?php echo $text_company_pos0; ?></option>
+          <option value="1" <?php echo ($config_company_position == 1) ? 'selected="selected"': '';?>><?php echo $text_company_pos1; ?></option>  
+          <option value="2" <?php echo ($config_company_position == 2) ? 'selected="selected"': '';?>><?php echo $text_company_pos2; ?></option>          
+        </select>
+      </div>		 
+		</div>	
+		<legend></legend>
+		</fieldset>
+		<?php /* OWC end owc_store_company_settings.xml */ ?> 		  
+		]]></add>
+	</operation>
+	</file>
+	
+	<!-- Company fields in invoice in admin order invoice. -->
+	<file path="admin/controller/sale/" name="order.php" error="skip">	
+	<operation>
+		<search position="after"><![CDATA[
+			$data['title'] = $this->language->get('text_invoice');
+		]]></search>
+		<add ><![CDATA[		  
+			/* OWC start owc_store_company_settings.xml */  			
+			$data['text_company_id']      = $this->language->get('text_company_id');
+			$data['help_company_id']      = $this->language->get('help_company_id');
+			$data['text_company_tax_id']  = $this->language->get('text_company_tax_id');
+			$data['help_company_tax_id']  = $this->language->get('help_company_tax_id');
+			$data['text_company_iban']    = $this->language->get('text_company_iban');
+			$data['help_company_iban']    = $this->language->get('help_company_iban');
+			$data['text_company_bic']     = $this->language->get('text_company_bic');
+			$data['help_company_bic']     = $this->language->get('help_company_bic');							
+			/* OWC end owc_store_company_settings.xml */  	
+		]]></add>
+	</operation>
+	<operation>
+		<search position="before" index="2"><![CDATA[
+			if ($order_info['invoice_no']) {
+		]]></search>
+		<add ><![CDATA[		  
+			/* OWC start owc_store_company_settings.xml */  			
+			if ($store_info) {
+				$store_company_id     = $store_info['config_company_id'];
+				$store_company_tax_id = $store_info['config_company_tax_id'];
+				$store_company_iban   = $store_info['config_company_iban'];
+				$store_company_bic    = $store_info['config_company_bic'];				
+			} else {
+				$store_company_id     = $this->config->get('config_company_id');
+				$store_company_tax_id = $this->config->get('config_company_tax_id');
+				$store_company_iban   = $this->config->get('config_company_iban');
+				$store_company_bic    = $this->config->get('config_company_bic');
+			}				
+			/* OWC end owc_store_company_settings.xml */  	
+		]]></add>
+	</operation>
+	<operation>
+		<search position="after"><![CDATA[
+			'store_fax'          => $store_fax,
+		]]></search>
+		<add ><![CDATA[		  
+			/* OWC start owc_store_company_settings.xml */  	
+			'store_company_id'          => $store_company_id,
+			'store_company_tax_id'      => $store_company_tax_id,
+			'store_company_iban'        => $store_company_iban,
+			'store_company_bic'         => $store_company_bic,
+			/* OWC end owc_store_company_settings.xml */  	
+		]]></add>
+	</operation>	
+	</file>
+	
+	<file path="admin/view/template/" name="sale/order_invoice.tpl" error="skip">	
+	<operation>
+		<search  position="before"><![CDATA[
+			<b><?php echo $text_telephone; ?></b>
+		]]></search>
+		<add><![CDATA[
+		<?php /* OWC start owc_store_company_settings.xml */ ?> 	
+		<?php if (!empty($order['store_company_id'])) { ?>
+	  <b><?php echo $text_company_id; ?>:</b> <?php echo $order['store_company_id']; ?><br />
+	  <?php } ?>
+	  <?php if (!empty($order['store_company_tax_id'])) { ?>
+	  <b><?php echo $text_company_tax_id; ?>:</b> <?php echo $order['store_company_tax_id']; ?><br />
+	  <?php } ?>
+	  <?php if (!empty($order['store_company_iban'])) { ?>
+	  <b><?php echo $text_company_iban; ?>:</b> <?php echo $order['store_company_iban']; ?><br />
+	  <?php } ?>
+	  <?php if (!empty($order['store_company_bic'])) { ?>
+	  <b><?php echo $text_company_bic; ?>:</b> <?php echo $order['store_company_bic']; ?><br />
+	  <?php } ?>
+		<?php /* OWC end owc_store_company_settings.xml */ ?> 		  
+		]]></add>
+	</operation>
+	</file>	
+	
+	<file name="catalog/controller/information/contact.php" error="skip">
+	<operation>
+		<search position="after"><![CDATA[
+			$data['comment'] = $this->config->get('config_comment');
+		]]></search>
+		<add><![CDATA[	  
+		 /* OWC start owc_store_company_settings.xml */		 
+		 $data['company_position']  = $this->config->get('config_company_position');	
+		 $data['company_id']        = $this->config->get('config_company_id');
+		 $data['company_tax_id']    = $this->config->get('config_company_tax_id');
+		 $data['company_iban']      = $this->config->get('config_company_iban');
+		 $data['company_bic']       = $this->config->get('config_company_bic');			 
+		 
+		 $data['text_company_info'] = $this->language->get('text_company_info');
+     $data['company_info']      = '<div class="row">';      
+		 if (!empty($data['company_id'])) {
+		  $data['company_info']       .= '<div class="col-lg-5 col-xs-5 col-md-6 col-sm-5 hidden-sm">' . $this->language->get('text_company_id') . '</div>';   	
+		  $data['company_info']       .= '<div class="col-lg-7 col-xs-7 col-md-6 col-sm-7">' . $data['company_id'] . '</div>';   	
+		 }	
+		 if (!empty($data['company_tax_id'])) {
+		  $data['company_info']       .= '<div class="col-lg-5 col-xs-5 col-md-6 col-sm-5 hidden-sm">' . $this->language->get('text_company_tax_id') . '</div>';   	
+		  $data['company_info']       .= '<div class="col-lg-7 col-xs-7 col-md-6 col-sm-7">' . $data['company_tax_id'] . '</div>';   	
+		 }		
+		 if (!empty($data['company_iban'])) {
+		  $data['company_info']       .= '<div class="col-lg-5 col-xs-5 col-md-6 col-sm-5 hidden-sm">' . $this->language->get('text_company_iban') . '</div>';   	
+		  $data['company_info']       .= '<div class="col-lg-7 col-xs-7 col-md-6 col-sm-7">' . $data['company_iban'] . '</div>'; 
+		 }
+		 if (!empty($data['company_bic'])) {
+		  $data['company_info']       .= '<div class="col-lg-5 col-xs-5 col-md-6 col-sm-5 hidden-sm">' . $this->language->get('text_company_bic') . '</div>';   	
+		  $data['company_info']       .= '<div class="col-lg-7 col-xs-7 col-md-6 col-sm-7">' . $data['company_bic'] . '</div>';   
+		 }			
+		 $data['company_info']  .= '</div>';  
+		 if ($data['company_position'] == 0) {
+		  $data['address'] .= '<br /><br />' . $data['company_info']; 
+		 }
+		   
+		 /* OWC end owc_store_company_settings.xml */		
+		 ]]></add>
+	</operation>		
+	</file>
+	
+	<file name="catalog/view/theme/*/template/information/contact.tpl" error="skip">
+	<operation>
+		<search  position="before"><![CDATA[
+			 <?php if ($open) { ?>
+		]]></search>
+		<add><![CDATA[
+		<?php /* OWC start owc_store_company_settings.xml */	
+	  if (isset($company_info) && $company_position == 1) { ?>
+	    <strong><?php echo $text_company_info; ?></strong><br />
+      <?php echo $company_info; ?><br />      
+	  <?php }	
+	  /* OWC end owc_store_company_settings.xml */ ?>		
+		]]></add>
+	</operation>		
+	<operation>
+		<search  position="after" offset="3"><![CDATA[
+			<?php if ($comment) { ?>
+		]]></search>
+		<add><![CDATA[
+		<?php /* OWC start owc_store_company_settings.xml */	
+	  if (isset($company_info) && $company_position == 2) { ?>
+	    <br /><br />
+	    <strong><?php echo $text_company_info; ?></strong><br />
+      <?php echo $company_info; ?>      
+	  <?php }	
+	  /* OWC end owc_store_company_settings.xml */ ?>		
+		]]></add>
+	</operation>		
+	</file>
+	
+</modification>

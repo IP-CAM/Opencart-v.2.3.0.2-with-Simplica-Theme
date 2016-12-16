@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<modification>
+	<id>Open Web Creations - Store Company ID/VAT/BANK on invoice and contact page DUTCH languages</id>
+	<version>1.0</version>
+	<vqmver>2.5.0</vqmver>
+	<author>http://www.openwebcreations.nl/</author>		
+	
+	<file path="admin/language/dutch/" name="setting/setting.php,setting/store.php,sale/order.php,information/contact.php" error="skip">
+	<operation>
+		<search position="replace"><![CDATA[
+			$_['heading_title']
+		]]></search>
+		<add ><![CDATA[			  
+	  /* OWC start owc_store_company_settings_dutch.xml */		
+	  $_['text_company_info']     = 'Extra Bedrijfsinformatie';	  
+	  $_['text_company_position'] = 'Positie';
+		$_['help_company_position'] = 'De positie waar de extra informatie op de contact pagina wordt geplaatst';
+		$_['text_company_pos0']     = 'Links onder winkel adres';
+		$_['text_company_pos1']     = 'Rechts boven Openningstijden';
+		$_['text_company_pos2']     = 'Rechts onder Commentaar';
+		$_['text_company_id']       = 'KvK';
+		$_['help_company_id']       = 'Bedrijf KvK nummer';
+		$_['text_company_tax_id']   = 'BTW';
+		$_['help_company_tax_id']   = 'Bedrijf BTW nummer';		
+		$_['text_company_iban']     = 'IBAN';
+		$_['help_company_iban']     = 'Bedrijf IBAN rekeningnummer';		
+		$_['text_company_bic']      = 'BIC';
+		$_['help_company_bic']      = 'Bedrijf IBAN BIC code';						
+		/* OWC end owc_store_company_settings_dutch.xml */		
+		$_['heading_title']	
+		]]></add>
+	</operation>
+	</file>
+	
+	<file path="catalog/language/dutch/" name="information/contact.php,account/pdf_invoice.php" error="skip">
+	<operation>
+		<search position="bottom"><![CDATA[
+			Text
+		]]></search>
+		<add ><![CDATA[			  
+	  /* OWC start owc_store_company_settings.xml */		
+	  $_['text_company_info']     = 'Bedrijfsinformatie';
+		$_['text_company_id']       = 'KvK:';	
+		$_['text_company_tax_id']   = 'BTW:';	
+		$_['text_company_iban']     = 'IBAN:';
+		$_['text_company_bic']      = 'BIC:';				
+		/* OWC end owc_store_company_settings.xml */		
+		]]></add>
+	</operation>
+	</file>
+	
+</modification>
