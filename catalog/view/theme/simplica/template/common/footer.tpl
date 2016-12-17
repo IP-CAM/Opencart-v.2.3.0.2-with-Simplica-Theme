@@ -39,12 +39,14 @@
       </div>
     </div>
     <hr>
-    <p class="pull-left"><?php echo $powered; ?></p>
+    <p class="pull-left test-ggg"><?php echo $powered; ?></p>
   </div>
+
+
 </footer>
 <!--
 OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donation.
 Please donate via PayPal to donate@opencart.com
 //-->
-<!-- Theme created by Welford Media for OpenCart 2.0 www.welfordmedia.co.uk -->
+<!-- Theme created by Welford Media for OpenCart 2.999 www.welfordmedia.co.uk -->
 </body></html>

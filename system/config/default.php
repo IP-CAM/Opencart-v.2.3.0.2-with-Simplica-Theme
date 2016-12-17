@@ -20,7 +20,7 @@ $_['db_database']          = '';
 $_['db_port']              = 3306;
 
 // Mail
-$_['mail_protocol']        = 'mail'; // mail or smtp
+$_['mail_protocol']        = ''; // mail or smtp
 $_['mail_from']            = ''; // Your E-Mail
 $_['mail_sender']          = ''; // Your name or company name
 $_['mail_reply_to']        = ''; // Reply to E-Mail

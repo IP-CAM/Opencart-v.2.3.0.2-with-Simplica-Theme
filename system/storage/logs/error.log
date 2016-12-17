@@ -1,0 +1,32 @@
+2016-12-16 17:01:27 - PHP Warning:  mail() expects at least 3 parameters, 0 given in /home/seiz/PhpstormProjects/openCart_task/catalog/view/theme/simplica/template/common/header.tpl on line 44
+2016-12-16 17:01:29 - PHP Warning:  mail() expects at least 3 parameters, 0 given in /home/seiz/PhpstormProjects/openCart_task/catalog/view/theme/simplica/template/common/header.tpl on line 44
+2016-12-16 17:01:54 - PHP Warning:  mail() expects at least 3 parameters, 0 given in /home/seiz/PhpstormProjects/openCart_task/catalog/view/theme/simplica/template/common/header.tpl on line 44
+2016-12-16 17:01:55 - PHP Warning:  mail() expects at least 3 parameters, 0 given in /home/seiz/PhpstormProjects/openCart_task/catalog/view/theme/simplica/template/common/header.tpl on line 44
+2016-12-16 17:31:57 - PHP Warning:  fsockopen(): php_network_getaddresses: getaddrinfo failed: С именем узла не связано ни одного адреса in /home/seiz/PhpstormProjects/openCart_task/system/library/mail.php on line 167
+2016-12-16 17:31:57 - PHP Warning:  fsockopen(): unable to connect to :25 (php_network_getaddresses: getaddrinfo failed: С именем узла не связано ни одного адреса) in /home/seiz/PhpstormProjects/openCart_task/system/library/mail.php on line 167
+2016-12-16 17:39:57 - PHP Notice:  Undefined variable: smtp_username in /home/seiz/PhpstormProjects/openCart_task/catalog/view/theme/simplica/template/common/header.tpl on line 53
+2016-12-16 18:11:31 - PHP Notice:  Use of undefined constant callback - assumed 'callback' in /home/seiz/PhpstormProjects/openCart_task/catalog/view/theme/simplica/template/common/header.tpl on line 42
+2016-12-16 18:11:31 - PHP Notice:  Use of undefined constant php - assumed 'php' in /home/seiz/PhpstormProjects/openCart_task/catalog/view/theme/simplica/template/common/header.tpl on line 42
+2016-12-16 18:11:31 - PHP Warning:  include_once(callbackphp): failed to open stream: Нет такого файла или каталога in /home/seiz/PhpstormProjects/openCart_task/catalog/view/theme/simplica/template/common/header.tpl on line 42
+2016-12-16 18:11:31 - PHP Warning:  include_once(): Failed opening 'callbackphp' for inclusion (include_path='.:/opt/lampp/lib/php') in /home/seiz/PhpstormProjects/openCart_task/catalog/view/theme/simplica/template/common/header.tpl on line 42
+2016-12-17 13:09:25 - PHP Notice:  Undefined index: name in /home/seiz/PhpstormProjects/openCart_task/vqmod/vqcache/vq2-catalog_controller_information_contact.php on line 195
+2016-12-17 13:09:25 - PHP Notice:  Undefined index: email in /home/seiz/PhpstormProjects/openCart_task/vqmod/vqcache/vq2-catalog_controller_information_contact.php on line 199
+2016-12-17 13:09:25 - PHP Notice:  Undefined index: enquiry in /home/seiz/PhpstormProjects/openCart_task/vqmod/vqcache/vq2-catalog_controller_information_contact.php on line 203
+2016-12-17 13:16:02 - PHP Notice:  Undefined index: name in /home/seiz/PhpstormProjects/openCart_task/vqmod/vqcache/vq2-catalog_controller_information_contact.php on line 195
+2016-12-17 13:16:02 - PHP Notice:  Undefined index: email in /home/seiz/PhpstormProjects/openCart_task/vqmod/vqcache/vq2-catalog_controller_information_contact.php on line 199
+2016-12-17 13:16:02 - PHP Notice:  Undefined index: enquiry in /home/seiz/PhpstormProjects/openCart_task/vqmod/vqcache/vq2-catalog_controller_information_contact.php on line 203
+2016-12-17 13:45:10 - PHP Notice:  Undefined index: name in /home/seiz/PhpstormProjects/openCart_task/vqmod/vqcache/vq2-catalog_controller_information_contact.php on line 195
+2016-12-17 13:45:10 - PHP Notice:  Undefined index: email in /home/seiz/PhpstormProjects/openCart_task/vqmod/vqcache/vq2-catalog_controller_information_contact.php on line 199
+2016-12-17 13:45:10 - PHP Notice:  Undefined index: enquiry in /home/seiz/PhpstormProjects/openCart_task/vqmod/vqcache/vq2-catalog_controller_information_contact.php on line 203
+2016-12-17 13:50:36 - PHP Notice:  Undefined index: name in /home/seiz/PhpstormProjects/openCart_task/vqmod/vqcache/vq2-catalog_controller_information_contact.php on line 198
+2016-12-17 13:50:36 - PHP Notice:  Undefined index: email in /home/seiz/PhpstormProjects/openCart_task/vqmod/vqcache/vq2-catalog_controller_information_contact.php on line 202
+2016-12-17 13:50:36 - PHP Notice:  Undefined index: enquiry in /home/seiz/PhpstormProjects/openCart_task/vqmod/vqcache/vq2-catalog_controller_information_contact.php on line 206
+2016-12-17 13:51:50 - PHP Notice:  Undefined index: name in /home/seiz/PhpstormProjects/openCart_task/vqmod/vqcache/vq2-catalog_controller_information_contact.php on line 199
+2016-12-17 13:51:50 - PHP Notice:  Undefined index: email in /home/seiz/PhpstormProjects/openCart_task/vqmod/vqcache/vq2-catalog_controller_information_contact.php on line 203
+2016-12-17 13:51:50 - PHP Notice:  Undefined index: enquiry in /home/seiz/PhpstormProjects/openCart_task/vqmod/vqcache/vq2-catalog_controller_information_contact.php on line 207
+2016-12-17 13:52:26 - PHP Notice:  Undefined index: name in /home/seiz/PhpstormProjects/openCart_task/vqmod/vqcache/vq2-catalog_controller_information_contact.php on line 199
+2016-12-17 13:52:26 - PHP Notice:  Undefined index: email in /home/seiz/PhpstormProjects/openCart_task/vqmod/vqcache/vq2-catalog_controller_information_contact.php on line 203
+2016-12-17 13:52:26 - PHP Notice:  Undefined index: enquiry in /home/seiz/PhpstormProjects/openCart_task/vqmod/vqcache/vq2-catalog_controller_information_contact.php on line 207
+2016-12-17 13:53:36 - PHP Notice:  Undefined index: email in /home/seiz/PhpstormProjects/openCart_task/vqmod/vqcache/vq2-catalog_controller_information_contact.php on line 203
+2016-12-17 13:53:36 - PHP Notice:  Undefined index: enquiry in /home/seiz/PhpstormProjects/openCart_task/vqmod/vqcache/vq2-catalog_controller_information_contact.php on line 207
+2016-12-17 13:54:31 - PHP Notice:  Undefined index: enquiry in /home/seiz/PhpstormProjects/openCart_task/vqmod/vqcache/vq2-catalog_controller_information_contact.php on line 207

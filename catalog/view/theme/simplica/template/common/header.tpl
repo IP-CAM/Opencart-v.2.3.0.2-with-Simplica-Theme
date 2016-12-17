@@ -23,10 +23,13 @@
 <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css" />
 <link href="catalog/view/theme/simplica/stylesheet/stylesheet.css" rel="stylesheet">
+  <link rel="stylesheet" href="catalog/view/theme/simplica/stylesheet/callback.css">
 <?php foreach ($styles as $style) { ?>
 <link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>" media="<?php echo $style['media']; ?>" />
 <?php } ?>
-<script src="catalog/view/javascript/common.js" type="text/javascript"></script>
+<script src="catalog/view/javascript/maskinput.js" type="text/javascript"></script>
+  <script src="catalog/view/javascript/callback.js" type="text/javascript"></script>
+  <script src="catalog/view/javascript/common.js" type="text/javascript"></script>
 <?php foreach ($links as $link) { ?>
 <link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>" />
 <?php } ?>
@@ -38,6 +41,41 @@
 <?php } ?>
 </head>
 <body class="<?php echo $class; ?>">
+
+<!-- Модальное окно -->
+<div id="modal_form">
+  <span id="modal_close">X</span>
+  <form action="<?php echo $contact; ?>" method="post" enctype="multipart/form-data" onsubmit="return (ValidPhone())">
+
+    <p><h3 id="message">Мы вам перезвоним</h3></p>
+    <p class="hidden" >Ваше имя<br />
+      <input class="hidden" type="text" name="name" value="Callback" size="40" />
+      <input class="hidden" type="text" name="email" value="callback@test.com" size="40" />
+      <input class="hidden" type="text" name="enquiry" value="1234567890" size="40" />
+    </p>
+    <p>Ваш телефон<br />
+      <input type="text" id="client-phone" name="client-phone" value="" size="40" />
+    </p>
+    <p style="text-align: center; padding-bottom: 10px;">
+      <input type="submit" value="Отправить" />
+    </p>
+  </form>
+</div>
+<div id="overlay"></div>
+
+
+
+<? //php include_once("callback.php"); ?>
+
+<a href="#" id="popup_toggle">
+  <div class="circlephone" style="transform-origin: center;"></div>
+  <div class="circle-fill" style="transform-origin: center;"></div>
+  <div class="img-circle" style="transform-origin: center;">
+    <div class="img-circleblock" style="transform-origin: center;"></div>
+  </div>
+</a>
+
+
 <nav id="top">
   <div class="container">
     <?php echo $currency; ?>
@@ -93,6 +131,7 @@
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav">
       <li class="hidden-xs"><a href="<?php echo $home; ?>"><?php echo $text_home; ?></a></li>
+        <li><a href="<?php echo $contact; ?>"><?php echo "Contacts Us"; ?></a></li>
         <?php foreach ($categories as $category) { ?>
         <?php if ($category['children']) { ?>
         <li class="dropdown"><a href="<?php echo $category['href']; ?>" class="dropdown-toggle" data-toggle="dropdown"><?php echo $category['name']; ?></a>
@@ -117,3 +156,4 @@
   </nav>
 </div>
 <?php } ?>
+

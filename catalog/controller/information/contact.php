@@ -17,11 +17,20 @@ class ControllerInformationContact extends Controller {
 			$mail->smtp_port = $this->config->get('config_mail_smtp_port');
 			$mail->smtp_timeout = $this->config->get('config_mail_smtp_timeout');
 
+            if (!isset($this->request->post['client-phone'])){
+                echo "asdasdasdasdasdasddasd";
+            }
+
 			$mail->setTo($this->config->get('config_email'));
-			$mail->setFrom($this->request->post['email']);
+			$mail->setFrom($this->config->get('config_email'));
 			$mail->setSender(html_entity_decode($this->request->post['name'], ENT_QUOTES, 'UTF-8'));
 			$mail->setSubject(html_entity_decode(sprintf($this->language->get('email_subject'), $this->request->post['name']), ENT_QUOTES, 'UTF-8'));
-			$mail->setText($this->request->post['enquiry']);
+            if (isset($this->request->post['client-phone'])) {
+                $mail->setText($this->request->post['client-phone'] . '   TimeSend ' .date("d.m.Y H:i:s"));
+            } else {
+                $mail->setText($this->request->post['enquiry']);
+            }
+
 			$mail->send();
 
 			$this->response->redirect($this->url->link('information/contact/success'));
@@ -159,6 +168,7 @@ class ControllerInformationContact extends Controller {
 	}
 
 	protected function validate() {
+
 		if ((utf8_strlen($this->request->post['name']) < 3) || (utf8_strlen($this->request->post['name']) > 32)) {
 			$this->error['name'] = $this->language->get('error_name');
 		}
