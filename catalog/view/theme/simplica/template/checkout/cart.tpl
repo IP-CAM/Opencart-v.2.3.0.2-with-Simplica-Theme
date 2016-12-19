@@ -1,0 +1,91 @@
+<?php echo $header; ?>
+<div class="container">
+  <ul class="breadcrumb">
+    <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+    <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+    <?php } ?>
+  </ul>
+  <?php if ($attention) { ?>
+  <div class="alert alert-info"><i class="fa fa-info-circle"></i> <?php echo $attention; ?>
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+  </div>
+  <?php } ?>
+  <?php if ($success) { ?>
+  <div class="alert alert-success"><i class="fa fa-check-circle"></i> <?php echo $success; ?>
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+  </div>
+  <?php } ?>
+  <?php if ($error_warning) { ?>
+  <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> <?php echo $error_warning; ?>
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+  </div>
+  <?php } ?>
+  <div class="row"><?php echo $column_left; ?>
+    <?php if ($column_left && $column_right) { ?>
+    <?php $class = 'col-sm-6'; ?>
+    <?php } elseif ($column_left || $column_right) { ?>
+    <?php $class = 'col-sm-9'; ?>
+    <?php } else { ?>
+    <?php $class = 'col-sm-12'; ?>
+    <?php } ?>
+    <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
+      <h1><?php echo $heading_title; ?>
+      </h1>
+      <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <td class="text-center">Remove</td>
+                <td class="text-center"><?php echo $column_image; ?></td>
+                <td class="text-left"><?php echo $column_name; ?></td>
+                <td class="text-left"><?php echo $column_model; ?></td>
+                <td class="text-left"><?php echo $column_quantity; ?></td>
+                <td class="text-right"><?php echo $column_price; ?></td>
+                <td class="text-right"><?php echo $column_total; ?></td>
+              </tr>
+            </thead>
+            <tbody>
+              <?php foreach ($products as $product) { ?>
+              <tr>
+                <td width="10px">
+                  <button type="button" data-toggle="tooltip" title="<?php echo $button_remove; ?>" class="btn btn-danger" onclick="cart.remove('<?php echo $product['cart_id']; ?>');">
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                  </button>
+                </td>
+                <td class="text-center"><?php if ($product['thumb']) { ?>
+                  <a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-thumbnail" /></a>
+                  <?php } ?></td>
+                <td class="text-left"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a>
+                  <?php if (!$product['stock']) { ?>
+                  <span class="text-danger">***</span>
+                  <?php } ?>
+
+                <td class="text-left"><?php echo $product['model']; ?></td>
+                <td class="text-left"><div class="input-group btn-block" style="max-width: 200px;">
+                    <input type="text" name="quantity[<?php echo $product['cart_id']; ?>]" value="<?php echo $product['quantity']; ?>" size="1" class="form-control" />
+                    <span class="input-group-btn">
+                    <button type="submit" data-toggle="tooltip" title="<?php echo $button_update; ?>" class="btn btn-primary"><i class="fa fa-refresh"></i></button>
+                    </span></div></td>
+                <td class="text-right"><?php echo $product['price']; ?></td>
+                <td class="text-right"><?php echo $product['total']; ?></td>
+              </tr>
+              <?php } ?>
+              <tr>
+              <td colspan="6" class="text-center">Total Price: <td class="text-right"><?= array_pop($totals)['text'] ?></td>
+              </tr>
+             </tbody>
+          </table>
+        </div>
+      </form>
+
+      <br />
+
+      <div class="buttons clearfix">
+        <div class="pull-left"><a href="<?php echo $continue; ?>" class="btn btn-default"><?php echo $button_shopping; ?></a></div>
+        <div class="pull-right"><a href="<?php echo $checkout; ?>" class="btn btn-primary"><?php echo $button_checkout; ?></a></div>
+      </div>
+      <?php echo $content_bottom; ?></div>
+    <?php echo $column_right; ?></div>
+</div>
+<?php echo $footer; ?>

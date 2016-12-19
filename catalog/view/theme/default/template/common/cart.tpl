@@ -25,6 +25,9 @@
           <td class="text-center"><button type="button" onclick="cart.remove('<?php echo $product['cart_id']; ?>');" title="<?php echo $button_remove; ?>" class="btn btn-danger btn-xs"><i class="fa fa-times"></i></button></td>
         </tr>
         <?php } ?>
+
+        <?= 'asdasdasdasdas'?>
+
         <?php foreach ($vouchers as $voucher) { ?>
         <tr>
           <td class="text-center"></td>

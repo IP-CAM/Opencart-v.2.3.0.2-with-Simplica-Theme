@@ -7,7 +7,7 @@ function ValidPhone() {
      var myPhone = document.getElementById('client-phone').value;
      var valid = re.test(myPhone);
      if (valid) {
-		 output = 'Номер телефона введен правильно!';
+		 output = 'Спасибо! Мы свяжемся с Вами в ближайшее время!';
 		 document.getElementById("message").style.color = "green";
 	 }
      else {

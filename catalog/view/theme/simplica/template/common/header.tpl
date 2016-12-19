@@ -64,9 +64,6 @@
 <div id="overlay"></div>
 
 
-
-<? //php include_once("callback.php"); ?>
-
 <a href="#" id="popup_toggle">
   <div class="circlephone" style="transform-origin: center;"></div>
   <div class="circle-fill" style="transform-origin: center;"></div>

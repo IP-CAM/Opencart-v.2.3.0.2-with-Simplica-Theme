@@ -43,6 +43,14 @@
               <?php } ?>
             </div>
             <div class="col-sm-3">
+
+		<?php /* OWC start owc_store_company_settings.xml */	
+	  if (isset($company_info) && $company_position == 1) { ?>
+	    <strong><?php echo $text_company_info; ?></strong><br />
+      <?php echo $company_info; ?><br />      
+	  <?php }	
+	  /* OWC end owc_store_company_settings.xml */ ?>		
+		
               <?php if ($open) { ?>
               <strong><?php echo $text_open; ?></strong><br />
               <?php echo $open; ?><br />
@@ -52,6 +60,15 @@
               <strong><?php echo $text_comment; ?></strong><br />
               <?php echo $comment; ?>
               <?php } ?>
+
+		<?php /* OWC start owc_store_company_settings.xml */	
+	  if (isset($company_info) && $company_position == 2) { ?>
+	    <br /><br />
+	    <strong><?php echo $text_company_info; ?></strong><br />
+      <?php echo $company_info; ?>      
+	  <?php }	
+	  /* OWC end owc_store_company_settings.xml */ ?>		
+		
             </div>
           </div>
         </div>

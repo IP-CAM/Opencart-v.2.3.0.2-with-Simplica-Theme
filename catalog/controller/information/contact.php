@@ -25,8 +25,12 @@ class ControllerInformationContact extends Controller {
 			$mail->setFrom($this->config->get('config_email'));
 			$mail->setSender(html_entity_decode($this->request->post['name'], ENT_QUOTES, 'UTF-8'));
 			$mail->setSubject(html_entity_decode(sprintf($this->language->get('email_subject'), $this->request->post['name']), ENT_QUOTES, 'UTF-8'));
+
+            //send phone or text
             if (isset($this->request->post['client-phone'])) {
-                $mail->setText($this->request->post['client-phone'] . '   TimeSend ' .date("d.m.Y H:i:s"));
+                $timezone  = +2; //(GMT -5:00) EST (U.S. & Canada)
+                $gmdate = gmdate("Y/m/j H:i:s", time() + 3600*($timezone+date("I")));
+                $mail->setText($this->request->post['client-phone'] . '   TimeSend ' .$gmdate);
             } else {
                 $mail->setText($this->request->post['enquiry']);
             }
