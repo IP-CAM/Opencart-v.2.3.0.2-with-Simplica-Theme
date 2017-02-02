@@ -73,3 +73,22 @@
 2016-12-19 13:53:32 - PHP Notice:  Undefined variable: total in /home/seiz/PhpstormProjects/openCart_task/catalog/view/theme/simplica/template/checkout/cart.tpl on line 73
 2016-12-19 13:54:45 - PHP Notice:  Undefined variable: total in /home/seiz/PhpstormProjects/openCart_task/catalog/view/theme/simplica/template/checkout/cart.tpl on line 73
 2016-12-19 13:55:17 - PHP Notice:  Undefined variable: total in /home/seiz/PhpstormProjects/openCart_task/catalog/view/theme/simplica/template/checkout/cart.tpl on line 73
+2017-02-01 22:24:22 - PHP Notice:  Undefined variable: route in /home/seiz/PhpstormProjects/openCart_task/catalog/view/theme/simplica/template/common/header.tpl on line 47
+2017-02-01 22:28:32 - PHP Notice:  Undefined variable: og_url in /home/seiz/PhpstormProjects/openCart_task/catalog/view/theme/simplica/template/common/header.tpl on line 47
+2017-02-01 22:28:48 - PHP Notice:  Undefined variable: og_url in /home/seiz/PhpstormProjects/openCart_task/catalog/view/theme/simplica/template/common/header.tpl on line 47
+2017-02-01 22:28:50 - PHP Notice:  Undefined variable: og_url in /home/seiz/PhpstormProjects/openCart_task/catalog/view/theme/simplica/template/common/header.tpl on line 47
+2017-02-01 22:28:52 - PHP Notice:  Undefined variable: og_url in /home/seiz/PhpstormProjects/openCart_task/catalog/view/theme/simplica/template/common/header.tpl on line 47
+2017-02-02 19:35:30 - PHP Notice:  Undefined variable: og_url in /home/seiz/PhpstormProjects/openCart_task/catalog/view/theme/simplica/template/common/header.tpl on line 47
+2017-02-02 19:35:51 - PHP Warning:  fsockopen(): SSL: Handshake timed out in /home/seiz/PhpstormProjects/openCart_task/system/library/mail.php on line 167
+2017-02-02 19:35:51 - PHP Warning:  fsockopen(): Failed to enable crypto in /home/seiz/PhpstormProjects/openCart_task/system/library/mail.php on line 167
+2017-02-02 19:35:51 - PHP Warning:  fsockopen(): unable to connect to ssl://smtp.yandex.ru:465 (Unknown error) in /home/seiz/PhpstormProjects/openCart_task/system/library/mail.php on line 167
+2017-02-02 19:36:13 - PHP Warning:  fsockopen(): SSL: Handshake timed out in /home/seiz/PhpstormProjects/openCart_task/system/library/mail.php on line 167
+2017-02-02 19:36:13 - PHP Warning:  fsockopen(): Failed to enable crypto in /home/seiz/PhpstormProjects/openCart_task/system/library/mail.php on line 167
+2017-02-02 19:36:13 - PHP Warning:  fsockopen(): unable to connect to ssl://smtp.yandex.ru:465 (Unknown error) in /home/seiz/PhpstormProjects/openCart_task/system/library/mail.php on line 167
+2017-02-02 19:37:40 - PHP Notice:  Undefined variable: og_url in /home/seiz/PhpstormProjects/openCart_task/catalog/view/theme/simplica/template/common/header.tpl on line 47
+2017-02-02 19:37:43 - PHP Notice:  Undefined variable: og_url in /home/seiz/PhpstormProjects/openCart_task/catalog/view/theme/simplica/template/common/header.tpl on line 47
+2017-02-02 19:37:56 - PHP Notice:  Undefined variable: og_url in /home/seiz/PhpstormProjects/openCart_task/catalog/view/theme/simplica/template/common/header.tpl on line 47
+2017-02-02 19:43:26 - PHP Notice:  Undefined index: show_modal in /home/seiz/PhpstormProjects/openCart_task/catalog/view/theme/simplica/template/common/header.tpl on line 49
+2017-02-02 19:52:24 - PHP Notice:  Undefined index: show_modal in /home/seiz/PhpstormProjects/openCart_task/catalog/view/theme/simplica/template/common/header.tpl on line 51
+2017-02-02 19:59:41 - PHP Warning:  include_once(/load_modal_start_page.html): failed to open stream: Нет такого файла или каталога in /home/seiz/PhpstormProjects/openCart_task/catalog/view/theme/simplica/template/common/header.tpl on line 50
+2017-02-02 19:59:41 - PHP Warning:  include_once(): Failed opening '/load_modal_start_page.html' for inclusion (include_path='.:/opt/lampp/lib/php') in /home/seiz/PhpstormProjects/openCart_task/catalog/view/theme/simplica/template/common/header.tpl on line 50

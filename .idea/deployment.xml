@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="seiz@seyz.zzz.com.ua" compareModeInSync="TIMESTAMP" showEqualInSync="true">
+    <serverData>
+      <paths name="seiz@seyz.zzz.com.ua">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/opencarttask.zzz.com.ua" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath path="/config.php" />
+            <excludedPath path="/admin/config.php" />
+            <excludedPath local="true" path="$PROJECT_DIR$/config.php" />
+            <excludedPath local="true" path="$PROJECT_DIR$/admin/config.php" />
+            <excludedPath local="true" path="$PROJECT_DIR$/vqmod/vqcache" />
+            <excludedPath path="/vqmod/vqcache" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>

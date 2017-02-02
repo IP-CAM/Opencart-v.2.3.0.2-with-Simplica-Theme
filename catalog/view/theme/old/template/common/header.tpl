@@ -42,18 +42,7 @@
 </head>
 <body class="<?php echo $class; ?>">
 
-
-<!-- загрузка стартового модального окна (если есть кука :))-->
-<?php
-
-if (!isset($_COOKIE['show_modal'])){
-  include_once("load_modal_start_page.html");
-  setcookie('show_modal', 'true', time() + 3600);
-}
-?>
-<!-- конец загрузки стартового модального окна -->
-
-<!-- Модальное окно callback-->
+<!-- Модальное окно -->
 <div id="modal_form">
   <span id="modal_close">X</span>
   <form action="<?php echo $contact; ?>" method="post" enctype="multipart/form-data" onsubmit="return (ValidPhone())">
